@@ -1,5 +1,5 @@
 import { useCookies } from "react-cookie";
-import { Sidenav } from "../sidebar/sidenav";
+// import { Sidenav } from "../sidebar/sidenav";
 import { TodoPage } from "../todopage/todopage";
 import { useEffect, useState } from "react";
 import { AppointmentContract } from "../../contracts/AppointmentContract";
@@ -37,9 +37,9 @@ export function AppointmentsHomePage() {
           backgroundColor: "white",
         }}
       >
-        <div>
+        {/* <div>
           <Sidenav />
-        </div>
+        </div> */}
         <div className="appointment-container">
           <div className="appointment-form mt-4">
             <form

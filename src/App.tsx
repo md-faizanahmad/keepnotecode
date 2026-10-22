@@ -30,13 +30,13 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="*" element={<NotFound />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<TodoPage />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<TodoPage />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />
         <Route path="/error" element={<UserInvalid />} />
         {/* <Route path="/basicInfo" element={<BasicInfo />} /> */}
-        {/* <Route path="/todo" element={<TodoPage />} /> */}
+        <Route path="/todo" element={<TodoPage />} />
       </Routes>
     </div>
   );

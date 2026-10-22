@@ -1,31 +1,46 @@
-import LightbulbIcon from "@mui/icons-material/LightbulbOutlined";
-import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
-import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
-import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import "./sidenav.css";
 
-export function Sidenav() {
+export function SideNav() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function toggleSidebar() {
+    setIsOpen(!isOpen);
+  }
+
   return (
-    <div>
-      <nav className="nav ms-2 mt-2">
-        <Link to="/Home" className="text-decoration-none text-dark">
-          <LightbulbIcon fontSize="large" />
-        </Link>
-        <Link to="/Home" className="text-decoration-none text-dark">
-          <NotificationsNoneOutlinedIcon fontSize="large" />
-        </Link>
-        <Link to="/Home" className="text-decoration-none text-dark">
-          <ModeEditOutlinedIcon fontSize="large" />
-        </Link>
-        <Link to="/Home" className="text-decoration-none text-dark">
-          <ArchiveOutlinedIcon fontSize="large" />
-        </Link>
-        <Link to="/Home" className="text-decoration-none text-dark">
-          <DeleteOutlineOutlinedIcon fontSize="large" />
-        </Link>
-      </nav>
-    </div>
+    <>
+      <div className="container-fluid nav-container">
+        <nav className="nav">
+          {/* Hamburger icon to toggle sidebar */}
+          <button className="hamburger-icon" onClick={toggleSidebar}>
+            ☰
+          </button>
+
+          <div className={`nav_menu ${isOpen ? "open" : "closed"}`}>
+            <div className="icon">
+              <span className="bi bi-lightbulb"></span>
+              {isOpen && <span>Notes</span>}
+            </div>
+            <div className="icon">
+              <span className="bi bi-bell"></span>
+              {isOpen && <span>Reminders</span>}
+            </div>
+            <div className="icon">
+              <span className="bi bi-pencil"></span>
+              {isOpen && <span>Edit</span>}
+            </div>
+            <div className="icon">
+              <span className="bi bi-save2"></span>
+              {isOpen && <span>Archives</span>}
+            </div>
+            <div className="icon">
+              <span className="bi bi-trash"></span>
+              {isOpen && <span>Bin</span>}
+            </div>
+          </div>
+        </nav>
+      </div>
+    </>
   );
 }
